@@ -11,24 +11,26 @@ let warningWordAdded = document.querySelector("#warning-word-add");
 
 
 function mostraInicio (){
-    inicioGame.setAttribute("class","main-inicio");
+    inicioGame.className = "main-inicio";
 }
 
 function escondeInicio() {
-    inicioGame.setAttribute("class","main-inicio-none");
+    inicioGame.className = "main-inicio-none";
 }
 
 function mostraSectionAddWord() {
-    sectionAddWord.setAttribute("class","all-containers-add");
+    sectionAddWord.className = "all-containers-add";
 }
 
 function escondeSectionAddWord() {
-    sectionAddWord.setAttribute("class","all-containers-add-none");
+    sectionAddWord.className = "all-containers-add-none";
 }
 
 function goToAddWord(){
-    escondeInicio();
-    mostraSectionAddWord();
+    setTimeout(function() {
+        escondeInicio();
+        mostraSectionAddWord();
+    }, 100);
 }
 
 function goToIndex(){
