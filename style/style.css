@@ -1,0 +1,294 @@
+* {
+    font-family: 'Signika','Public Sans',Verdana, sans-serif;   /* font-family: 'Signika' importada */
+    font-weight: 700;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    background-color: #111d;
+    height: auto;
+}
+
+.titulo-alura::first-letter{
+    font-size: 55px;
+    font-weight: 570;
+}
+
+.titulo-alura,.titulo-jogo {
+    font-size: 35px;
+    color: #FFF;
+    font-family: 'signika';
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+
+main {
+    margin: 0 auto;
+    
+}
+
+body {
+    background-color: #FFFACD;
+    background-image: url(/img/background.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+/*  section inicio  */
+.main-inicio {
+    width: 100%;
+    height: 100%;
+    display: flex;  /* FLEX  */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 170px;
+}
+
+.main-inicio-none {
+    display:none;
+}
+
+.main-inicio button {
+    width: 500px;
+    height: 107px;
+    align-self: center;
+    align-content: center;
+    border: 3px solid #784d19;
+    border-radius: 24px;
+    background-color: #DAA520;      /* light #e3c388   dark #58492f   */
+    color: #000;
+    font-size: 19px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 3px 3px 5px #000;
+}
+
+.main-inicio button:nth-child(2) {
+    margin-top: 1.5em;
+}
+
+.main-inicio button:hover {
+    border: 3px solid #784d19;
+    background-color: #ead0ad;
+    color: #fff;
+}
+
+.main-inicio button:active {
+    
+    transform: scale(.95)
+}
+
+/*  section  adiciona palavra   */
+
+.all-containers-add-none {
+    display: none;
+}
+
+.all-containers-add {
+ /*   display normal */
+    opacity: 0.9;
+}
+
+.main-add {
+    width: 50%;
+    display: flex;    /*  DISPLAY FLEX  */
+    flex-direction: column;
+    justify-content: center;
+    color: #784d19;
+    gap: 13px;
+}
+
+.container-add {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 4%;
+}
+
+.new-word {
+    width: 30%;
+    height: 40px;
+    resize: none;
+    border: 2px solid #784d19;
+    background-color: #F0E68C;
+    padding-top: 5px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    color: #492a06;
+}
+
+.new-word::placeholder, .input-hint::placeholder {
+    text-align: center;
+    padding-top: 6px;
+    color: #784d19;
+}
+
+.group-theme {
+    display: flex;
+    margin-top: 5%;
+    max-width: 90%;
+    justify-content: space-around;
+}
+
+label {
+    color: #492a06;
+    margin-top: 9px;
+    margin-left: 35%;
+    letter-spacing: 2px;
+}
+
+.main-add select, .btn-add-word,.input-hint, .new-word {
+    color: #492a06;
+    width: 60%;
+    height: 40px;
+    margin-left: 30%;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #784d19;
+    background-color: #DAA520;
+    box-shadow: 2px 2px 4px #000;
+}
+
+.main-add select {
+    width: 100%;
+    margin-left: 1em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.btn-add-word, .main-add select{
+    background-color: #FF8C00;
+}
+
+.btn-add-word:hover {
+    border-color: #492a06;
+    background-color: #ead0ad;
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+}
+
+.content-buttons {
+    width: 35%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-buttons button {
+    color: #492a06;
+    height: 40%;
+    margin: auto 0;
+    text-align: center;
+    border-radius: 20px;
+    border: 3px solid #784d19;
+    background-color: #FF8C00;
+    box-shadow: 2px 2px 4px #000;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.content-buttons button:hover {
+    border-color: #492a06;
+    background-color: #ead0ad;
+    color: #fff;
+    cursor: pointer;
+}
+
+.aviso-palavra-adicionada-none {
+    display: none;
+}
+
+.aviso-palavra-adicionada {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 18vh;
+    margin: 4em auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: #98FB98;
+    border-radius: 15px;
+    color: #FFF;
+    text-shadow: 1px 1px 3px #000;
+    box-shadow: 2px 2px 5px #000;
+    background-image: url(/img/forca.png);
+    background-size: contain;
+    background-position: center;
+}
+
+
+
+
+/*  section  game */
+
+body:before {
+    opacity: 0.3;
+}
+
+
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100vw;
+    padding-top: 10px;
+    color: #fff;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    align-items: baseline;
+}
+
+.icons img{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.icons a {
+    display: inline;
+    color: #fff;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.linkedin a:hover {
+    color:#0077b7;
+    transition: 0.3s;
+}
+
+.copyright p {
+    display: inline;
+    user-select: none;
+    color: #fff;
+    font-size: 12px;
+}
+
+.copyright p:first-letter{
+    font-size: 14px;
+}

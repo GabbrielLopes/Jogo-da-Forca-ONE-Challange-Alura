@@ -1,0 +1,91 @@
+<!-- Jogo da Forca
+
+    Minhas ideias: Ter 1 array com alguns temas com diversas palavras com diferentes temas, ter opção de adicionar as palavras nos temas existente, ex: temas -> comida, objeto, partes do corpo humano, etc. E ter opção de adicionar palavras nesses temas, onde o usuário escolher.
+
+    Da para criar uma array com o nome do tema, e dentro dessa array, ter diversas palavras, a lógica pode funcionar da seguinte maneira - >
+    Ter o código de sortear um numero, e esse numero ele vai sortear para puxar uma palavra aleatoria de dentro da array. E para adicionar a palavra usar o comando push de dentro da array do tema selecionado também..
+
+    var comida = ["parmegiana","carne","feijao"...];
+    var frutas = ["maça","pera","laranja"];
+    var objetos = ["teclado","copo","monitor","cadeira"];
+    var palavraSorteada = sorteiaNUmero(temaEscolhido.length)
+	
+	adicionar uma varivel com uma array que contém as letras que já foram..
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap">
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <header>
+        <div class="titulo-alura">
+            <h1>alura - ONE</h1>
+        </div>
+        <div class="titulo-jogo">
+            <h1>Jogo da Forca</h1>
+        </div>
+    </header>
+
+    <main>
+            <section class="main-inicio" id="inicio">
+                    <button class="btn-play">Começar a jogar</button>
+                    <button id="go-add-word">Adicionar nova palavra</button>
+            </section>
+            <section class="all-containers-add-none" id="section-add-word">
+                <div class="container-add">
+                    <section class="main-add">
+                    <div class="group-theme">
+                        <label for="theme">Tema:</label>
+                        <select name="temas" id="theme">
+                            <option value="1">Objeto</option>
+                            <option value="2">Fruta</option>
+                            <option value="3">Veiculo</option>
+                            <option value="4">Aleatorio</option>
+                        </select>
+                    </div>
+                        <input class="new-word" type="text" placeholder="Digite uma palavra (maximo 8 letras)"></input>
+                        <input class="input-hint" type="text" id="hint" placeholder="Dica">
+                        <input class="btn-add-word" type="submit" value="Adicionar">
+                    </section>
+
+                    <section class="content-buttons">
+                        <button>Jogar</button>
+                        <button class="btn-cancel">Cancelar</button>
+                    </section>
+                </div>
+                <div class="aviso-palavra-adicionada-none" id="warning-word-add">
+                    <span>Palavra adicionada com sucesso!</span>
+                </div>
+            </section>
+
+            <section class="body-main-game">
+                <button>Desistir</button>
+            </section>
+    </main>
+
+    <footer>
+        <div class="icons">
+            <div class="linkedin">
+                <a href="https://www.linkedin.com/in/josegabrielalopes/" target="_blank"><img src="img/linkedin.png">LinkedIn</a>
+            </div>
+            <div class="copyright">
+                <p>© Todos os direitos reservado a <a href="https://www.linkedin.com/in/josegabrielalopes/" target="_blank">José Gabriel Araújo Lopes</a></p>
+            </div>
+            <div class="github">
+                <a id="git" href="https://github.com/GabbLps" target="_blank"><img src="img/github.png">GitHub</a>
+            </div>
+        </div>
+        
+    </footer>
+    <script src="./script/navegacao.js"></script>
+</body>
+</html>
