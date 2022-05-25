@@ -11,22 +11,19 @@ let warningWordAdded = document.querySelector("#warning-word-add");
 
 
 function mostraInicio (){
-    inicioGame.classList.remove("main-inicio-none");
-    inicioGame.classList.add("main-inicio");
+    inicioGame.setAttribute("class","main-inicio");
 }
 
 function escondeInicio() {
-    inicioGame.classList.add("main-inicio-none");
+    inicioGame.setAttribute("class","main-inicio-none");
 }
 
 function mostraSectionAddWord() {
-    sectionAddWord.classList.remove("all-containers-add-none");
-    sectionAddWord.classList.add("all-containers-add");
+    sectionAddWord.setAttribute("class","all-containers-add");
 }
 
 function escondeSectionAddWord() {
-    sectionAddWord.classList.remove("all-containers-add")
-    sectionAddWord.classList.add("all-containers-add-none");
+    sectionAddWord.setAttribute("class","all-containers-add-none");
 }
 
 function goToAddWord(){
@@ -41,10 +38,6 @@ function goToIndex(){
     inputHint.value="";
 }
 
-function mostraAvisoWordAdd(){
-    warningWordAdded.classList.remove("aviso-palavra-adicionada-none");
-    warningWordAdded.classList.add("aviso-palavra-adicionada");
-}
 
 btnGoAddWord.addEventListener("click", goToAddWord);
 btnCancel.addEventListener("click", goToIndex);
