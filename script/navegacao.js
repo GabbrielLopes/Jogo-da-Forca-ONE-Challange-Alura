@@ -4,10 +4,10 @@ let btnCancel = document.querySelector(".btn-cancel");
 let btnAddWord = document.querySelector(".btn-add-word");
 let inicioGame = document.querySelector("#inicio");
 let sectionAddWord = document.querySelector("#section-add-word");
-let inputNewWoRD = document.querySelector(".new-word");
-let inputHint = document.querySelector("#hint");
 let warningWordAdded = document.querySelector("#warning-word-add");
 let sectionGame = document.querySelector("#section-game");
+let inputNewWord = document.querySelector(".new-word");
+let inputHint = document.querySelector("#hint");
 
 
 function mostraInicio (){
@@ -36,7 +36,7 @@ function goToAddWord(){
 function goToIndex(){
     escondeSectionAddWord();
     mostraInicio();
-    inputNewWoRD.value="";
+    inputNewWord.value="";
     inputHint.value="";
 }
 
