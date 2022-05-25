@@ -236,8 +236,12 @@ label {
 
 /*  section  game */
 
-body:before {
-    opacity: 0.3;
+.main-game-none {
+    display: none;
+}
+
+.main-game {
+    display: flex;
 }
 
 
