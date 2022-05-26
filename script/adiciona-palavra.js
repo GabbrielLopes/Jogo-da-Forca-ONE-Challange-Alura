@@ -13,9 +13,47 @@ let palavras = {
 
 
 
+function verificaSeTemNumero(val){
+    return !isNaN(val)
+  }
+
+let palavraArmazenada;
+let = palavraEncontrada = false;
+function validaPalavra(palavra){
+    for (let i=0; i < palavras.objetos.length; i++) {
+        if(palavras.objetos[i] == palavra){
+
+            palavraEncontrada = true;
+            warningWordAdded.textContent = "Erro, essa palavra já foi adicionada!"
+            warningWordAdded.className = 'aviso-palavra-repetida';
+            inputNewWord.value="";
+            setTimeout(function(){  // setando tempo para proxima função, para dar tempo de ver o efeito da transição
+                warningWordAdded.className = 'aviso-palavra-adicionada-none'
+                warningWordAdded.textContent = "Palavra adicionada com sucesso!"
+            }, 3000);
+            
+        }else {
+            palavraEncontrada = false;
+        }
+    }
+    
+}
+
+
+function avisaPalavraAdicionada() {
+    warningWordAdded.className = 'aviso-palavra-adicionada'
+    setTimeout(function(){  // setando tempo para proxima função, para dar tempo de ver o efeito da transição
+        warningWordAdded.className = 'aviso-palavra-adicionada-none'
+    }, 3000);
+}
 
 function addWord() {
-
+    palavraArmazenada = inputNewWord.value;
+    if(inputNewWord.value.length < 3 || verificaSeTemNumero(inputNewWord.value) ) {
+        return;
+    }
+    
+    
     let objetos = 0;
     let frutas = 1;
     let veiculo = 2;
@@ -35,8 +73,10 @@ function addWord() {
         palavras.dicaRandom.push(inputHint.value);
     }
 
-
+    avisaPalavraAdicionada();
+    
     console.log(palavras);
 }
+
 
 btnAddWord.addEventListener('click', addWord);
