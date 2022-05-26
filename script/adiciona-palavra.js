@@ -20,23 +20,19 @@ function verificaSeTemNumero(val){
 let palavraArmazenada;
 let = palavraEncontrada = false;
 function validaPalavra(palavra){
-    for (let i=0; i < palavras.objetos.length; i++) {
-        if(palavras.objetos[i] == palavra){
-
-            palavraEncontrada = true;
-            warningWordAdded.textContent = "Erro, essa palavra já foi adicionada!"
-            warningWordAdded.className = 'aviso-palavra-repetida';
-            inputNewWord.value="";
-            setTimeout(function(){  // setando tempo para proxima função, para dar tempo de ver o efeito da transição
-                warningWordAdded.className = 'aviso-palavra-adicionada-none'
-                warningWordAdded.textContent = "Palavra adicionada com sucesso!"
-            }, 3000);
-            
-        }else {
-            palavraEncontrada = false;
-        }
-    }
-    
+    if(palavras.objetos.includes(palavra) || palavras.objetos.includes(palavra.toLowerCase())){
+        palavraEncontrada = true;
+        warningWordAdded.className = 'aviso-palavra-repetida';
+        warningWordAdded.textContent = 'Erro, essa palavra já foi adicionada!';
+        inputNewWord.value="";
+        setTimeout(function(){  // setando tempo para proxima função, para dar tempo de ver o efeito da transição
+            warningWordAdded.className = 'aviso-palavra-adicionada-none'
+            warningWordAdded.textContent = "Palavra adicionada com sucesso!"
+        }, 3000);
+        return;
+    } else {
+        palavraEncontrada = false;
+    } 
 }
 
 
@@ -53,6 +49,10 @@ function addWord() {
         return;
     }
     
+    validaPalavra(palavraArmazenada);
+    if(palavraEncontrada){
+        return;
+    }
     
     let objetos = 0;
     let frutas = 1;
@@ -74,9 +74,9 @@ function addWord() {
     }
 
     avisaPalavraAdicionada();
+    inputNewWord.value="";
     
     console.log(palavras);
 }
-
 
 btnAddWord.addEventListener('click', addWord);
