@@ -1,17 +1,15 @@
 let temas = document.querySelector("#theme");
 
 let palavras = {
-    objetos: ["mouse","teclado","cadeira","headset","violao"],
+    objetos: ["MOUSE", "TECLADO", "CADEIRA", "HEADSET", "VIOLAO"],
     dicaObjetos: ["se usa no computador","se usa no computador","tem na cozinha","se usa para jogar","quem tem dó é?"],
-    frutas: ["laranja,","acerola","banana","tomate","melancia"],
+    frutas: ["LARANJA,","ACEROLA","BANANA","TOMATE","MELANCIA"],
     dicaFrutas: ["é uma cor","coceira","macaco gosta","ketchup","magali"],
-    veiculos: ["marea","uno","corsa","sonata","polo"],
+    veiculos: ["MAREA","UNO","CORSA","SONATA","POLO"],
     dicaVeiculos: ["carro bombastico","carro para toda obra","capotei o ?","hyundai","pega moço"],
-    random: ["truco","bacalhau","café","alho","vaca","vampiro"],
+    random: ["TRUCO","BACALHAU","CAFÉ","ALHO","VACA","VAMPIRO"],
     dicaRandom: ["pede 6","especie de peixe","tira sono","tempero","muuu","morcego"]
 }
-
-
 
 function verificaSeTemNumero(val){
     return !isNaN(val)
@@ -44,8 +42,8 @@ function avisaPalavraAdicionada() {
 }
 
 function addWord() {
-    palavraArmazenada = inputNewWord.value;
-    if(inputNewWord.value.length < 3 || verificaSeTemNumero(inputNewWord.value) ) {
+    palavraArmazenada = inputNewWord.value.toUpperCase();
+    if(palavraArmazenada.length < 3 || verificaSeTemNumero(inputNewWord.value)) {
         return;
     }
     
@@ -54,22 +52,17 @@ function addWord() {
         return;
     }
     
-    let objetos = 0;
-    let frutas = 1;
-    let veiculo = 2;
-    let aleatorio = 3;
-
-    if(temas.value == objetos){
-        palavras.objetos.push(inputNewWord.value);
+    if(temas.value == 'objetos'){
+        palavras.objetos.push(palavraArmazenada);
         palavras.dicaObjetos.push(inputHint.value);
-    } else if(temas.value == frutas){
-        palavras.frutas.push(inputNewWord.value);
+    } else if(temas.value == 'frutas'){
+        palavras.frutas.push(palavraArmazenada);
         palavras.dicaFrutas.push(inputHint.value);
-    } else if(temas.value == veiculo){
-        palavras.veiculos.push(inputNewWord.value);
+    } else if(temas.value == 'veiculo'){
+        palavras.veiculos.push(palavraArmazenada);
         palavras.dicaVeiculos.push(inputHint.value);
-    }else if(temas.value == aleatorio){
-        palavras.random.push(inputNewWord.value);
+    }else if(temas.value == 'random'){
+        palavras.random.push(palavraArmazenada);
         palavras.dicaRandom.push(inputHint.value);
     }
 
