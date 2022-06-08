@@ -42,21 +42,22 @@
             </section>
             <section class="all-containers-add-none" id="section-add-word">
                 <div class="container-add">
-                    <section class="main-add">
-                    <div class="group-theme">
-                        <label for="theme">Tema:</label>
-                        <select name="temas" id="theme">
-                            <option value="0">Objeto</option>
-                            <option value="1">Fruta</option>
-                            <option value="2">Veiculo</option>
-                            <option value="3">Aleatorio</option>
-                        </select>
-                    </div>
-                        <input class="new-word" type="text" minlength="2" maxlength="8" placeholder="*Digite uma palavra (maximo 8 letras)" required>
-                        <input class="input-hint" type="text" id="hint" placeholder="Dica">
-                        <input class="btn-add-word" type="submit" value="Adicionar">
-                    </section>
-
+                        <section class="main-add">
+                    <form>
+                        <div class="group-theme">
+                            <label for="theme">Tema:</label>
+                            <select name="temas" id="theme">
+                                <option value="objetos">Objeto</option>
+                                <option value="frutas">Fruta</option>
+                                <option value="veiculos">Veiculo</option>
+                                <option value="random">Aleatorio</option>
+                            </select>
+                        </div>
+                            <input class="new-word" type="text" minlength="2" maxlength="8" placeholder="*Digite uma palavra (maximo 8 letras)" pattern="^[a-zA-Z]" required>
+                            <input class="input-hint" type="text" id="hint" placeholder="Dica">
+                            <input class="btn-add-word" type="submit" value="Adicionar">
+                        </section>
+                    </form>
                     <section class="content-buttons">
                         <button class="btn-play">Jogar</button>
                         <button class="btn-cancel">Cancelar</button>
@@ -68,7 +69,12 @@
             </section>
 
             <section class="main-game-none" id="section-game">
-                
+                <div class="forca">
+                    <img src="img/forcaa.png">
+                </div>
+                <div class="boneco">
+                    <img src="img/corpo-boneco/boneco-inteiro.png">
+                </div>
             </section>
     </main>
 
@@ -88,5 +94,6 @@
     </footer>
     <script src="./script/navegacao.js"></script>
     <script src="./script/adiciona-palavra.js"></script>
+    <script src="./script/game.js"></script>
 </body>
 </html>

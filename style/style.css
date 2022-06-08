@@ -101,7 +101,6 @@ body {
     flex-direction: column;
     justify-content: center;
     color: #784d19;
-    gap: 13px;
 }
 
 .container-add {
@@ -149,6 +148,7 @@ label {
     width: 60%;
     height: 40px;
     margin-left: 30%;
+    margin-bottom: 13px;
     text-align: center;
     border-radius: 10px;
     border: 2px solid #784d19;
@@ -182,7 +182,7 @@ label {
 
 .content-buttons {
     width: 35%;
-    margin-top: 3%;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
 }
@@ -260,6 +260,17 @@ label {
 
 .main-game {
     display: flex;
+}
+
+.forca {
+    max-width: 40%;
+    width: auto;
+}
+
+.boneco {
+    position: absolute;
+    left: 282px;
+    top: 205px;
 }
 
 
