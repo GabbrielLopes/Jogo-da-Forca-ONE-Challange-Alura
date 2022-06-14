@@ -260,17 +260,79 @@ label {
 
 .main-game {
     display: flex;
+    width: auto;
+    height: auto;
 }
 
 .forca {
     max-width: 40%;
     width: auto;
+    margin-top: 50px;
 }
 
 .boneco {
     position: absolute;
     left: 282px;
     top: 205px;
+    margin-top: 50px;
+}
+
+#head,#body, #bracos, #pernas {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.letras-pressionadas-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 174px;
+    margin: 100px auto 0 auto;
+    padding: 7px 15px;
+    font-size: 32px;
+    border: 2px solid #000;
+    overflow-wrap: break-word;
+}
+
+.palavra-letras {
+    text-align: center;
+    color: #c53612;
+}
+
+.todas-letras-pressionadas {
+    margin: auto 0;
+    letter-spacing: 15px;
+    font-size: 25px;
+}
+
+.group-dica {
+    font-weight: 500;
+    font-size: 25px;
+    margin: 53px auto;
+}
+
+
+
+.container-palavra {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+}
+
+.palavra {
+    display: flex;
+    margin: auto;
+    gap: 30px;
+    justify-content: center;
+}
+
+.letras {
+    width: 60px;
+    height: 59px;
+    border-bottom: 3px solid #000;
+    font-size: 50px;
+    text-align: center;
 }
 
 

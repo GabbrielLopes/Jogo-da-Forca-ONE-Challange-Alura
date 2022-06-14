@@ -5,11 +5,15 @@ function verificaSeTemNumero(val){
     for(var i = 0;i < val.length;i++){
         if(!isNaN(val[i])){
             temNumero = true;
+            break;
         } else {
             temNumero = false;
         }
     }
-    return Boolean(temNumero);
+    if(temNumero){
+
+    }
+    return temNumero;
   }
 
 let palavraArmazenada;
@@ -51,7 +55,7 @@ function avisaPalavraAdicionada() {
 
 function addWord() {
     palavraArmazenada = inputNewWord.value.toUpperCase();
-    if(palavraArmazenada.length < 3 || verificaSeTemNumero(inputNewWord.value)) {
+    if(palavraArmazenada.length < 3 || verificaSeTemNumero(palavraArmazenada)) {
         return;
     }
     
@@ -59,21 +63,20 @@ function addWord() {
     if(palavraEncontrada){
         return;
     }
-    
+    objetos = 0;
+    frutas = 1;
+    veiculos = 2;
+    aleatorio = 3;
     if(temas.value == 'objetos'){
-        objetos = 0
-        frutas = 1
-        veiculos = 2
-        aleatorio = 3
         palavras[objetos].push(palavraArmazenada);
         dicas[objetos].push(inputHint.value);
     } else if(temas.value == 'frutas'){
         palavras[frutas].push(palavraArmazenada);
         dicas[frutas].push(inputHint.value);
-    } else if(temas.value == 'veiculo'){
+    } else if(temas.value == 'veiculos'){
         palavras[veiculos].push(palavraArmazenada);
         dicas[veiculos].push(inputHint.value);
-    }else if(temas.value == 'random'){
+    } else if(temas.value == 'random'){
         palavras[aleatorio].push(palavraArmazenada);
         dicas[aleatorio].push(inputHint.value);
     }
@@ -85,5 +88,4 @@ function addWord() {
     console.log(palavras);
     
 }
-
 btnAddWord.addEventListener('click', addWord);
