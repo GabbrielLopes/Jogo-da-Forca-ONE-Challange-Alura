@@ -29,3 +29,8 @@ Funções ->
 <img src="https://user-images.githubusercontent.com/101233353/173996827-d720a1ee-e762-48a3-afa7-2dcfb0f47672.png"><hr>
 <img src="https://user-images.githubusercontent.com/101233353/173996819-8115b579-8d2f-4f68-b67b-10098d61e783.png">
 
+<div align="center">
+<h3 style="text-align: center;margin-top:30px"><strong>Badge de reconhecimento e entrega do desafio</strong></h3>
+   <img align="center" alt="Badge medalha conclusao desafio" height="50%" width="50%" src="https://user-images.githubusercontent.com/101233353/173998970-de57a82e-2afa-4af3-b92a-6837d5257ea4.png">
+</div>
+<hr>
