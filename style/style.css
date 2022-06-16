@@ -335,6 +335,54 @@ label {
     text-align: center;
 }
 
+.win {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 145px);
+    background-color: rgba(34, 34, 34, 0.7);
+    transition: 0.3s;
+}
+
+.content-win {
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    font-weight: 500;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16%;
+}
+
+.content-buttons-win {
+    display: flex;
+    width: 50%;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  align-items: center;
+}
+
+.content-buttons-win button {
+    width: 210px;
+    height: 45px;
+    color: #FFF;
+    letter-spacing: 2px;
+    border-radius: 15px 5px 15px 5px;
+    background-color: rgba(34, 34, 34, 0.7);
+}
+
+.content-buttons-win button:hover {
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
+}
 
 
 /* footer */

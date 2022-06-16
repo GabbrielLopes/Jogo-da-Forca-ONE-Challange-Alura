@@ -17,7 +17,8 @@ function verificaSeTemNumero(val){
   }
 
 let palavraArmazenada;
-let = palavraEncontrada = false;
+let dicaArmazenada;
+let palavraEncontrada = false;
 function validaPalavra(palavra){
     for(let tema = 0;tema < palavras.length;tema++) {
         for(let nome = 0;nome < palavras[tema].length;nome++) {
@@ -55,6 +56,10 @@ function avisaPalavraAdicionada() {
 
 function addWord() {
     palavraArmazenada = inputNewWord.value.toUpperCase();
+    dicaArmazenada = inputHint.value.toUpperCase();
+    palavraSorteada = palavraArmazenada;
+    dica = hint.textContent;
+    dica = dicaArmazenada;
     if(palavraArmazenada.length < 3 || verificaSeTemNumero(palavraArmazenada)) {
         return;
     }
@@ -85,7 +90,7 @@ function addWord() {
     inputNewWord.value="";
     inputHint.value="";
     
-    console.log(palavras);
+    //console.log(palavras);
     
 }
 btnAddWord.addEventListener('click', addWord);

@@ -8,6 +8,7 @@ let warningWordAdded = document.querySelector("#warning-word-add");
 let sectionGame = document.querySelector("#section-game");
 let inputNewWord = document.querySelector(".new-word");
 let inputHint = document.querySelector("#hint");
+let quitGame = document.querySelector(".quit-game")
 
 
 function mostraInicio (){
@@ -35,6 +36,7 @@ function goToAddWord(){
 
 function goToIndex(){
     escondeSectionAddWord();
+    escondeGame();
     mostraInicio();
     inputNewWord.value="";
     inputHint.value="";
@@ -46,6 +48,8 @@ function mostraGame() {
 
 function escondeGame() {
     sectionGame.className = "main-game-none";
+    const win = document.querySelector(".win");
+    win.style.display = "none";
 }
 
 function goToGame(){
@@ -61,7 +65,7 @@ for(var x=0; x<btnPlay.length; x++){
     btnPlay[x].addEventListener("click", goToGame);
  }
 
-
 btnGoAddWord.addEventListener("click", goToAddWord);
 btnCancel.addEventListener("click", goToIndex);
+quitGame.addEventListener("click", goToIndex);
 

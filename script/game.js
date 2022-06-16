@@ -17,13 +17,13 @@ let letrasPressionadas = [];
 let letrasCorretas = [];
 let palavraSorteada = "";
 let dica = "";
-let erros = 9;
+let erros = 6;
 let nomeDica = "";
+let keyPress = "";
 let hint = document.querySelector(".dica");
 let todasLetras = document.querySelector(".todas-letras-pressionadas");
 
 function sorteiaPalavra() {
-
     function sorteiaNumero(array) {
         return Math.floor(Math.random()*array)
     }
@@ -34,46 +34,121 @@ function sorteiaPalavra() {
     nomeDica = Object(dicas[dicaNumero][numeroDaPalavra]);
     dica = nomeDica.toUpperCase();
     hint.textContent = dica;
-    console.log(palavraSorteada);
-    console.log(dicaNumero);
-    console.log(dica);
+    //console.log(palavraSorteada);
+    //console.log(dicaNumero);
+    //console.log(dica);
 }
 
 palavras.forEach(function(temas) {
-    console.log(temas + " - " + palavras[temas]);
+    //console.log(temas + " - " + palavras[temas]);
 });
 dicas.forEach(function(dicas) {
-    console.log(dicas + " - " + palavras[dicas]);
+    //console.log(dicas + " - " + palavras[dicas]);
 });
 
-btnPlay[0].addEventListener("click", sorteiaPalavra);
-btnPlay[0].addEventListener("click", criaTracos);
 
-document.addEventListener("keydown", (evento) => {
-    const codigo = evento.keyCode; // 65 A  - 90 Z
-    if(isLetra(codigo)){
+function startGame(){
+    resetGame();
+    goToGame();
+    sorteiaPalavra();
+    game();
+    criaTracos();
+}
 
-        let letra = evento.key;
-        letra = letra.toUpperCase();
-        if(letrasPressionadas.includes(letra)){
-        } else {
-            if(palavraSorteada.includes(letra)){
-                letrasCorretas.push(letra);
-                letrasPressionadas.push(letra);
+// Fazer todos os botoes jogar executar as functions
+    btnPlay[0].addEventListener("click", startGame);
+    btnPlay[1].addEventListener("click", startGame);
+    btnPlay[2].addEventListener("click", startGame);
+  
+    btnPlay[1].addEventListener("click", resetGame);
+    btnPlay[1].addEventListener("click", goToGame);
+    btnPlay[1].addEventListener("click", game);
+    btnPlay[1].addEventListener("click", criaTracos);
+
+ 
+    
+function resetGame() {
+    const dica = document.querySelector(".dica");
+    if(palavraArmazenada !== ""){   // Validar se palavra nova foi adicionada para puxar ela como palavra sorteada direto
+        palavraSorteada = palavraArmazenada;
+        dica.textContent = dicaArmazenada;
+    }
+    const win = document.querySelector(".win");
+    win.style.display = 'none';
+    todasLetras.innerHTML = "";
+    letrasErradas = [];
+    letrasPressionadas = [];
+    letrasCorretas = [];
+    erros = 0;
+    const partesCorpo = document.querySelectorAll(".partes-corpo");  // reseta corpo do boneco
+    for(let i = 0; i < partesCorpo.length;i++){
+        partesCorpo[i].style.display = 'none';
+    }
+}
+
+function game(){
+    const palavra = document.querySelector(".palavra");
+    document.addEventListener("keydown", (evento) => {
+        const codigo = evento.keyCode; // 65 A  - 90 Z
+        if(isLetra(codigo)){
+
+            let letra = evento.key;
+            letra = letra.toUpperCase();
+            keyPress = letra;
+            if(erros < 6){
+            if(!palavra.textContent.includes(palavraSorteada)){  // VALIDAR PALAVRA PARA O JOGO NÃO FUNCIONAR APÓS ACERTAR PALAVRA.
+            if(letrasPressionadas.includes(letra)){
             } else {
-                letrasPressionadas.push(letra);
-                letrasErradas.push(letra);
+                if(palavraSorteada.includes(letra)){
+                    letrasCorretas.push(letra);
+                    letrasPressionadas.push(letra);
+                } else {
+                    letrasPressionadas.push(letra);
+                    letrasErradas.push(letra);
+                    erros = erros + 1;
+                }
+            }
+            atualizarJogo(evento); 
+            }
             }
         }
-        atualizarJogo(evento); 
-    }
-    
-});
+    });
+}
 
 function atualizarJogo(evento){
-    mostrarLetrasPressionadas(); // adicionar letras pressionadas no quadro
+    mostrarLetrasPressionadas(); 
     mostrarLetrasCertas(evento);
     desenhaForca();
+    checarJogo();
+}
+
+function checarJogo(){
+    const palavra = document.querySelector(".palavra");
+    if(palavra.textContent.includes(palavraSorteada)){
+        exibirVitoria();
+    }else if (erros === 6){
+        exibirDerrota();
+    }
+}
+
+function exibirVitoria(){
+    const win = document.querySelector(".win");
+    const msgWin = document.querySelector(".msg-win");
+    setTimeout(function() {
+        msgWin.innerHTML = '';
+        msgWin.innerHTML = '<div>Parabéns, você acertou!</div>';
+        win.style.display = 'inherit';
+    },300);
+}
+
+function exibirDerrota(){
+    const win = document.querySelector(".win");
+    const msgWin = document.querySelector(".msg-win");
+    setTimeout(function() {
+        msgWin.innerHTML = '';
+        msgWin.innerHTML = '<div>Você perdeu!</div>';
+        win.style.display = 'initial';
+    },300);
 }
 
 function desenhaForca(){
@@ -85,6 +160,8 @@ function desenhaForca(){
 
 function criaTracos(){
     let containerPalavra = document.querySelector(".palavra")
+    containerPalavra.innerHTML = "";
+
     for(let i = 0;i < palavraSorteada.length;i++){
         let div = document.createElement("div");
         div.className = 'letras';
@@ -94,7 +171,7 @@ function criaTracos(){
 
 function mostrarLetrasCertas(evento) {
     let letra = evento.key.toUpperCase();
-    console.log(letra);
+    //console.log(letra);
     let letras = document.querySelectorAll(".letras");
     for(let i = 0;i < palavraSorteada.length;i++){
         letrasSeparadas = palavraSorteada.split("");
